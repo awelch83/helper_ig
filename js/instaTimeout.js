@@ -1,0 +1,1 @@
+var instaTimeout=function(){"use strict";return{setTimeout:function(t){return new Promise(function(n){window.setTimeout(function(){n()},t)})}}}();

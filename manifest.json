@@ -1,0 +1,53 @@
+{
+"update_url": "https://localhost",
+
+	"manifest_version": 2,
+
+	"name": "Helper Tools for Instagram",
+	"short_name": "Helper For Insta",
+	"description": "Create followers/following list of IG account, find common users of 2 IG accounts, mass following, liking the posts in your feed",
+	"version": "0.365",
+
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	},
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'",
+
+  "page_action": {
+		"default_icon": "img/icon19.png",
+		"default_title": "Helper Tools for Instagram.com",
+		"default_popup": "popup.html"
+	},
+
+	"icons": {
+		"19": "img/icon19.png",
+		"32": "img/icon32.png",
+		"48": "img/icon48.png",
+		"64": "img/icon64.png"
+	},
+
+	"background": {
+		"scripts": ["js/PromiseChrome.js", "js/background.js"],
+		"persistent": true
+	},
+
+	"content_scripts": [{
+			"matches": ["https://www.instagram.com/*"],
+			"js": ["js/instaDefOptions.js", "js/PromiseChrome.js", "js/instaMessages.js", "js/instagramHelper.js"]
+		}
+	],
+
+	"permissions": [
+    "tabs",
+    "storage",
+		"unlimitedStorage",
+		"cookies",
+		"webRequest",
+		"webRequestBlocking",
+		"https://www.instagram.com/*"
+	],
+
+  "incognito": "split"
+}
